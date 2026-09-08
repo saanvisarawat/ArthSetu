@@ -1,5 +1,34 @@
 # Master Business Categories and Risk Matrix for ArthSetu LLM Feasibility Engine
 
+# --- Module 2: Smart Financial Calculator and Scheme Router (Shivangi) ---
+
+# Rs 1.40 Lakh boundary is inclusive to the Micro Finance Scheme (2.2)
+PROJECT_COST_SCHEME_BOUNDARY = 140000
+
+# Above this, project cost is outside both scheme caps (2.1 / 2.2)
+MAX_PROJECT_COST = 5000000
+
+# Below this, margin capital produces too small a project to be a real
+# micro-enterprise (2.1 edge case)
+MIN_MARGIN_CAPITAL = 5000
+
+SCHEMES = {
+    "micro_finance": {
+        "name": "Micro Finance Scheme",
+        "interest_rate": 6.5,       # % p.a.
+        "tenure_years": 3,
+        "moratorium_months": 3,
+        "loan_cap": 125000,         # Rs 1.25 Lakh
+    },
+    "term_loan": {
+        "name": "Term Loan Scheme",
+        "interest_rate": 8.0,       # % p.a.
+        "tenure_years": 7,
+        "moratorium_months": 6,
+        "loan_cap": 4500000,        # Rs 45 Lakh
+    },
+}
+
 BUSINESS_CATEGORIES = {
     "dairy_farming": {
         "label": "Dairy & Milk Production",

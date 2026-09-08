@@ -3,6 +3,7 @@ from pydantic import BaseModel
 from sqlalchemy.orm import Session
 from ..database import get_db
 from .. import models
+from ..services.financial_engine import run_eligibility_engine, ValidationError
 
 router = APIRouter(prefix="/api/v1/projects", tags=["Projects"])
 
@@ -56,3 +57,28 @@ def get_project(project_id: str, db: Session = Depends(get_db)):
             "capital": project.margin_capital
         }
     }
+
+@router.post("/{project_id}/calculate-eligibility")
+def calculate_eligibility(project_id: str, db: Session = Depends(get_db)):
+    # 1. Look up the project this calculation belongs to
+    project = db.query(models.Project).filter(models.Project.id == project_id).first()
+
+    if not project:
+        raise HTTPException(status_code=404, detail="Project not found")
+
+    # 2. Run 2.1 (Financial Structuring) -> 2.2 (Scheme Auto-Selection)
+    try:
+        result = run_eligibility_engine(project.margin_capital)
+    except ValidationError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+
+    # 3. Persist the computed figures back onto the project row
+    project.project_cost = result["project_cost"]
+    project.loan_amount = result["final_loan_amount"]
+    project.scheme_type = result["scheme_name"]
+
+    db.commit()
+    db.refresh(project)
+
+    # 4. Return the full breakdown
+    return result
