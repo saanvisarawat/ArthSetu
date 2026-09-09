@@ -1,0 +1,42 @@
+BUSINESS_BENCHMARKS = [
+    {
+        "business_category": "Dairy Farming",
+        "typical_project_cost_min": 500000,
+        "typical_project_cost_max": 1200000,
+        "assumed_monthly_revenue": 90000,
+        "assumed_monthly_opex": 60000,
+        "assumed_gross_margin_pct": 0.33,
+    },
+    {
+        "business_category": "Tailoring",
+        "typical_project_cost_min": 200000,
+        "typical_project_cost_max": 1000000,
+        "assumed_monthly_revenue": 60000,
+        "assumed_monthly_opex": 35000,
+        "assumed_gross_margin_pct": 0.42,
+    },
+    {
+        "business_category": "Kirana Store",
+        "typical_project_cost_min": 200000,
+        "typical_project_cost_max": 850000,
+        "assumed_monthly_revenue": 250000,
+        "assumed_monthly_opex": 210000,
+        "assumed_gross_margin_pct": 0.16,
+    },
+    {
+        "business_category": "Poultry Farming",
+        "typical_project_cost_min": 300000,
+        "typical_project_cost_max": 1100000,
+        "assumed_monthly_revenue": 180000,
+        "assumed_monthly_opex": 140000,
+        "assumed_gross_margin_pct": 0.22,
+    },
+    {
+        "business_category": "Flour Mill",
+        "typical_project_cost_min": 1800000,
+        "typical_project_cost_max": 2500000,
+        "assumed_monthly_revenue": 550000,
+        "assumed_monthly_opex": 420000,
+        "assumed_gross_margin_pct": 0.24,
+    },
+]
