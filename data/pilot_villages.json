@@ -1,0 +1,38 @@
+[
+  {
+    "village_name": "Otur",
+    "taluka": "Junnar",
+    "district": "Pune",
+    "state": "Maharashtra",
+    "gram_panchayat": true,
+    "population": 20308,
+    "population_census_year": 2011,
+    "households": 4311,
+    "male_population": 10335,
+    "female_population": 9973,
+    "nearby_weekly_market_haat": "Junnar (Otur) Agricultural Produce Market Committee (APMC) - a wholesale mandi located directly in Otur, trading vegetables, onions, and other produce for the surrounding villages.",
+    "notes": "Second-most populous village in Junnar taluka; located near the Ashtavinayak temples (Lenyadri, Ozar) and Malshej Ghat, on a route connecting to Manchar, Sangamner, and Shirur.",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Otur,_Maharashtra",
+      "https://www.census2011.co.in/data/village/555259-otur-maharashtra.html",
+      "https://www.napanta.com/market-price/maharashtra/pune/junnar-otur"
+    ]
+  },
+  {
+    "village_name": "Uttur",
+    "taluka": "Ajara",
+    "district": "Kolhapur",
+    "state": "Maharashtra",
+    "gram_panchayat": true,
+    "population": 7828,
+    "population_census_year": 2011,
+    "households": null,
+    "male_population": null,
+    "female_population": null,
+    "nearby_weekly_market_haat": "Saturday Weekly Market - explicitly documented as serving the surrounding 'Panchkroshi' (five-village) cluster around Uttur.",
+    "notes": "Located in the southern part of Kolhapur district near the Maharashtra-Karnataka-Goa tri-junction region; has its own Grampanchayat office, Talathi office, and post office.",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Uttur,_Kolhapur"
+    ]
+  }
+]

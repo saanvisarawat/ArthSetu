@@ -1,5 +1,34 @@
 # Master Business Categories and Risk Matrix for ArthSetu LLM Feasibility Engine
 
+# --- Module 2: Smart Financial Calculator and Scheme Router (Shivangi) ---
+
+# Rs 1.40 Lakh boundary is inclusive to the Micro Finance Scheme (2.2)
+PROJECT_COST_SCHEME_BOUNDARY = 140000
+
+# Above this, project cost is outside both scheme caps (2.1 / 2.2)
+MAX_PROJECT_COST = 5000000
+
+# Below this, margin capital produces too small a project to be a real
+# micro-enterprise (2.1 edge case)
+MIN_MARGIN_CAPITAL = 5000
+
+SCHEMES = {
+    "micro_finance": {
+        "name": "Micro Finance Scheme",
+        "interest_rate": 6.5,       # % p.a.
+        "tenure_years": 3,
+        "moratorium_months": 3,
+        "loan_cap": 125000,         # Rs 1.25 Lakh
+    },
+    "term_loan": {
+        "name": "Term Loan Scheme",
+        "interest_rate": 8.0,       # % p.a.
+        "tenure_years": 7,
+        "moratorium_months": 6,
+        "loan_cap": 4500000,        # Rs 45 Lakh
+    },
+}
+
 BUSINESS_CATEGORIES = {
     "dairy_farming": {
         "label": "Dairy & Milk Production",
@@ -66,4 +95,29 @@ BUSINESS_CATEGORIES = {
         ],
         "cash_flow_cycle": "Job-work basis (50% upfront, 50% on delivery)"
     }
+}
+
+# Regional Purchasing Power Index (Base 1.0 = National Rural Average)
+REGIONAL_PPI = {
+    "Maharashtra": {
+        "Pune": 1.15,
+        "Kolhapur": 1.02,
+        "default": 1.00
+    },
+    "Rajasthan": {
+        "Jaipur": 1.08,
+        "Dausa": 0.91,
+        "Alwar": 0.96,
+        "default": 0.90
+    },
+    "default": 1.00
+}
+
+# Benchmark Unit Pricing by Category
+BENCHMARK_UNIT_PRICING = {
+    "Dairy Farming": {"unit": "litre", "base_price": 50, "min_price": 44, "max_price": 56},
+    "Tailoring": {"unit": "standard suit", "base_price": 350, "min_price": 280, "max_price": 450},
+    "Kirana Store": {"unit": "basket margin %", "base_price": 14, "min_price": 10, "max_price": 18},
+    "Poultry Farming": {"unit": "kg live broiler", "base_price": 110, "min_price": 95, "max_price": 130},
+    "Flour Mill": {"unit": "kg milling fee", "base_price": 4, "min_price": 3, "max_price": 6},
 }
