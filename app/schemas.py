@@ -1,9 +1,9 @@
 from pydantic import BaseModel
-from uuid import UUID
+from typing import List, Optional
 from datetime import datetime
-from typing import Optional
-from typing import Dict, Any
+from uuid import UUID
 
+# --- User Schemas ---
 class UserCreate(BaseModel):
     name: Optional[str] = None
     phone: Optional[str] = None
@@ -13,6 +13,7 @@ class UserResponse(UserCreate):
     id: UUID
     created_at: datetime
 
+# --- Project Schemas ---
 class ProjectCreate(BaseModel):
     village: str
     block: str
@@ -24,18 +25,53 @@ class ProjectCreate(BaseModel):
     loan_amount: Optional[float] = None
     scheme_type: Optional[str] = None
 
-
 class ProjectResponse(ProjectCreate):
     id: UUID
     created_at: datetime   
 
+# --- Feasibility Report Inner Structures ---
+class MarketReach(BaseModel):
+    population_reached: int
+    addressable_spend_inr: int
+    top_channels: List[str]
+
+class Niche(BaseModel):
+    niche: str
+    rationale: str
+
+class Opportunity(BaseModel):
+    top_niches: List[Niche]
+
+class SWOT(BaseModel):
+    strengths: List[str]
+    weaknesses: List[str]
+    opportunities: List[str]
+    threats: List[str]
+
+class Risk(BaseModel):
+    threat: str
+    mitigation: str
+
+class Threats(BaseModel):
+    risks: List[Risk]
+
+class Competitor(BaseModel):
+    estimated_count: int
+    saturation_label: str
+    confidence: str
+
+class Pricing(BaseModel):
+    recommended_band: str
+    rationale: str
+
+# --- Feasibility Report Main Schema ---
 class FeasibilityReportResponse(BaseModel):
-    project_id: UUID
+    project_id: str
     status: str
     language: str
-    market_reach_json: Dict[str, Any]
-    opportunity_json: Dict[str, Any]
-    swot_json: Dict[str, Any]
-    threats_json: Dict[str, Any]
-    competitor_json: Dict[str, Any]
-    pricing_json: Dict[str, Any]
+    market_reach_json: MarketReach
+    opportunity_json: Opportunity
+    swot_json: SWOT
+    threats_json: Threats
+    competitor_json: Competitor
+    pricing_json: Pricing
