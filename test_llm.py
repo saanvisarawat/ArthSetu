@@ -1,5 +1,5 @@
 from dotenv import load_dotenv
-load_dotenv() # This forces Python to read your .env file
+load_dotenv()
 
 from app.services.llm_engine import generate_feasibility_report
 

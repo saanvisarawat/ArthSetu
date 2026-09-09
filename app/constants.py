@@ -15,17 +15,17 @@ MIN_MARGIN_CAPITAL = 5000
 SCHEMES = {
     "micro_finance": {
         "name": "Micro Finance Scheme",
-        "interest_rate": 6.5,       # % p.a.
+        "interest_rate": 6.5,
         "tenure_years": 3,
         "moratorium_months": 3,
-        "loan_cap": 125000,         # Rs 1.25 Lakh
+        "loan_cap": 125000,
     },
     "term_loan": {
         "name": "Term Loan Scheme",
-        "interest_rate": 8.0,       # % p.a.
+        "interest_rate": 8.0,
         "tenure_years": 7,
         "moratorium_months": 6,
-        "loan_cap": 4500000,        # Rs 45 Lakh
+        "loan_cap": 4500000,
     },
 }
 

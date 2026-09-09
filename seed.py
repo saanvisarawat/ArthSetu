@@ -8,11 +8,11 @@ from app import models
 models.Base.metadata.create_all(bind=engine)
 
 def seed_data():
-    # 1. Open a database session
+
     db: Session = SessionLocal()
     
     try:
-        # 2. Find and load the JSON file
+
         file_path = os.path.join(os.path.dirname(__file__), "data", "pilot_villages.json")
         
         if not os.path.exists(file_path):
@@ -22,9 +22,9 @@ def seed_data():
         with open(file_path, "r") as file:
             villages = json.load(file)
             
-        # 3. Loop through the JSON and insert each village
+
         for v in villages:
-            # Check if the village already exists to avoid duplicates
+
             existing = db.query(models.LocalMarketData).filter(
                 models.LocalMarketData.village_name == v["village_name"]
             ).first()
@@ -40,7 +40,7 @@ def seed_data():
             else:
                 print(f"⚠️ Data for {v['village_name']} already exists. Skipping.")
                 
-        # 4. Save the changes to Supabase
+
         db.commit()
         print("🎉 Database seeding complete!")
         

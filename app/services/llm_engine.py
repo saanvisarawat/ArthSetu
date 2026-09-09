@@ -22,14 +22,14 @@ def generate_feasibility_report(
     competitors: int,
     population: int,
     market_access: str,
-    state: str = "Maharashtra", # Defaulting to our pilot region
+    state: str = "Maharashtra",
     district: str = "Pune"
 ):
-    # 1. Fetch benchmark data
+
     state_ppi = REGIONAL_PPI.get(state, {}).get(district, REGIONAL_PPI["default"])
     pricing_data = BENCHMARK_UNIT_PRICING.get(category, BENCHMARK_UNIT_PRICING["Dairy Farming"])
 
-    # 2. Inject everything into the prompt
+
     user_prompt = f"""
     Analyze the feasibility for a new {category} business in {village}.
     

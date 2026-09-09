@@ -62,7 +62,7 @@ def select_scheme(project_cost: float, raw_loan_amount: float) -> dict:
             ),
         }
 
-    # Rs 1.40 Lakh boundary is inclusive to Micro Finance
+
     if project_cost <= constants.PROJECT_COST_SCHEME_BOUNDARY:
         scheme_key = "micro_finance"
     else:
